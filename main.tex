@@ -1,0 +1,78 @@
+% Class Options (Optional)
+%\PassOptionsToClass{sigconf, anonymous=true}{acmart} 
+%\PassOptionsToClass{conference, nofonttune}{IEEETran}
+
+% 1. Choose conference template "ieee", "acm", "lncs", or "elsevier"
+% -----------------------------------------------------
+\input{template/ieee}
+
+
+% 2. Add own packages here 
+% -----------------------------------------------------
+\RequirePackage{graphicx, microtype, booktabs, siunitx}
+\RequirePackage[noabbrev,capitalize]{cleveref}  % adds \cref
+\RequirePackage{flushend}      % auto-balance columns on last page
+% \include{template/extra/squeeze-magic}
+
+
+% 3. Specify Metadata
+% -----------------------------------------------------
+
+\title{An awesome paper template}
+
+% comma separated keywords (will be included in PDF metadata)
+\keywords{Traffic Management, CPS, SUMO, IoT}
+
+\doctype{Conference Paper}  % for PDF Metadata
+
+
+% Author information. 
+% First, specify a simple, short Author String that will be included in the header and PDF metadata. E.g. use "John Doe et. al." or "J. Doe, A. Smith, C. Hook"
+\shortAuthorString{E. Regnath, J. Doe}
+
+
+% Provide all author details
+% Can use up to authorFiveXXX
+\authorOneName{Emanuel Regnath}
+\authorOneMail{emanuel.regnath@siemens.com}
+\authorOneOrg{Siemens AG}
+\authorOneCountry{Germany}
+\authorOneORCID{0000-0002-0006-7761}
+
+\authorTwoName{John Doe}
+\authorTwoMail{john.doe@tum.de}
+\authorTwoOrg{Technical University of Munich}
+\authorTwoCountry{Germany}
+\authorTwoORCID{}
+
+
+% specify DOI for Camera Ready Version
+%\doi{10.475/123_4}
+
+
+% Begin of document. The template files use the hook "begindocument/end" to create the title area after this line and automatically insert the content of "content/0_abstract.tex" 
+\begin{document}
+
+
+% 4. Choose content sections to include
+% -----------------------------------------------------
+\input{content/1_introduction.tex}
+% \input{content/2_background.tex}
+\input{content/3_approach.tex}
+\input{content/4_details.tex}
+\input{content/5_related_work.tex}
+\input{content/6_evaluation.tex}
+% \input{content/7_discussion.tex}
+\input{content/8_conclusion.tex}
+	
+
+
+% 4. Compile!
+
+% references are added at the end
+\vfill
+\bibliography{res/bib/references}
+\vspace{-0.3em}
+
+% that's all folks
+\end{document}

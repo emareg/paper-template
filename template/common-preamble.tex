@@ -1,0 +1,131 @@
+% colors
+\RequirePackage{xcolor}
+\definecolor{col_link}{HTML}{0087BE}
+\definecolor{col_prim}{HTML}{009999}
+\definecolor{col_sec}{HTML}{00D7A0}  % bright: 00ffb9
+
+
+
+
+
+% ----------------------------------------------------------------------
+% Save \title, \author, \date before \maketitle
+% \PassOptionsToPackage{pdfpagelabels, unicode=true}{hyperref}
+\PassOptionsToPackage{pdfpagelabels}{hyperref}
+\RequirePackage{hyperref}
+\hypersetup{
+    pdfcreator={LaTeX2e},
+    pdfborder=0 0 0,
+    breaklinks=true,
+    bookmarksopen=true,
+    bookmarksnumbered=true,
+    linkcolor=col_link,
+    urlcolor=col_link,
+    citecolor=col_link,
+    colorlinks=true
+}
+
+
+% Author Info
+\gdef\theAuthorOneName{}
+\gdef\theAuthorOneMail{}
+\gdef\theAuthorOneOrg{}
+\gdef\theAuthorOneCountry{}
+\gdef\theAuthorOneORCID{}
+\providecommand{\authorOneName}[1]{\gdef\theAuthorOneName{#1}}
+\providecommand{\authorOneMail}[1]{\gdef\theAuthorOneMail{#1}}
+\providecommand{\authorOneOrg}[1]{\gdef\theAuthorOneOrg{#1}}
+\providecommand{\authorOneCountry}[1]{\gdef\theAuthorOneCountry{#1}}
+\providecommand{\authorOneORCID}[1]{\gdef\theAuthorOneORCID{#1}}
+
+\gdef\theAuthorTwoName{}
+\gdef\theAuthorTwoMail{}
+\gdef\theAuthorTwoOrg{}
+\gdef\theAuthorTwoCountry{}
+\gdef\theAuthorTwoORCID{}
+\providecommand{\authorTwoName}[1]{\gdef\theAuthorTwoName{#1}}
+\providecommand{\authorTwoMail}[1]{\gdef\theAuthorTwoMail{#1}}
+\providecommand{\authorTwoOrg}[1]{\gdef\theAuthorTwoOrg{#1}}
+\providecommand{\authorTwoCountry}[1]{\gdef\theAuthorTwoCountry{#1}}
+\providecommand{\authorTwoORCID}[1]{\gdef\theAuthorTwoORCID{#1}}
+
+\gdef\theAuthorThreeName{}
+\gdef\theAuthorThreeMail{}
+\gdef\theAuthorThreeOrg{}
+\gdef\theAuthorThreeCountry{}
+\gdef\theAuthorThreeORCID{}
+\providecommand{\authorThreeName}[1]{\gdef\theAuthorThreeName{#1}}
+\providecommand{\authorThreeMail}[1]{\gdef\theAuthorThreeMail{#1}}
+\providecommand{\authorThreeOrg}[1]{\gdef\theAuthorThreeOrg{#1}}
+\providecommand{\authorThreeCountry}[1]{\gdef\theAuthorThreeCountry{#1}}
+\providecommand{\authorThreeORCID}[1]{\gdef\theAuthorThreeORCID{#1}}
+
+\gdef\theAuthorFourName{}
+\gdef\theAuthorFourMail{}
+\gdef\theAuthorFourOrg{}
+\gdef\theAuthorFourCountry{}
+\gdef\theAuthorFourORCID{}
+\providecommand{\authorFourName}[1]{\gdef\theAuthorFourName{#1}}
+\providecommand{\authorFourMail}[1]{\gdef\theAuthorFourMail{#1}}
+\providecommand{\authorFourOrg}[1]{\gdef\theAuthorFourOrg{#1}}
+\providecommand{\authorFourCountry}[1]{\gdef\theAuthorFourCountry{#1}}
+\providecommand{\authorFourORCID}[1]{\gdef\theAuthorFourORCID{#1}}
+
+\gdef\theAuthorFiveName{}
+\gdef\theAuthorFiveMail{}
+\gdef\theAuthorFiveOrg{}
+\gdef\theAuthorFiveCountry{}
+\gdef\theAuthorFiveORCID{}
+\providecommand{\authorFiveName}[1]{\gdef\theAuthorFiveName{#1}}
+\providecommand{\authorFiveMail}[1]{\gdef\theAuthorFiveMail{#1}}
+\providecommand{\authorFiveOrg}[1]{\gdef\theAuthorFiveOrg{#1}}
+\providecommand{\authorFiveCountry}[1]{\gdef\theAuthorFiveCountry{#1}}
+\providecommand{\authorFiveORCID}[1]{\gdef\theAuthorFiveORCID{#1}}
+
+
+% Additional Info
+\gdef\theDOI{}
+\providecommand{\doi}[1]{\gdef\theDOI{#1}}
+
+\gdef\theShortAuthorString{}
+\providecommand{\shortAuthorString}[1]{\gdef\theShortAuthorString{#1}}
+
+\gdef\thedoctype{}
+\providecommand{\doctype}[1]{\gdef\thedoctype{#1}}
+
+
+\gdef\thekeywords{}
+\providecommand{\keywords}[1]{\gdef\thekeywords{#1}}
+
+
+
+% Title
+% \makeatletter
+% \renewcommand{\title}[1]{%
+%     \gdef\@title{#1}%
+%     \gdef\thetitle{#1}
+% }
+% \makeatother
+
+
+% set PDF properties
+\makeatletter
+\AddToHook{begindocument/end}{%
+
+\@ifpackageloaded{hyperref}{%
+  \hypersetup{%
+    %bookmarks    = true,         % show bookmarks bar?
+    %pdftoolbar   = true,         % show Acrobat’s toolbar?
+    %pdfmenubar   = true,         % show Acrobat’s menu?
+    % pdffitwindow = false,        % window fit to page when opened
+    % pdfstartview = {FitH},       % fits the width of the page to the window
+    pdftitle     = {\@title},  % title
+    pdfauthor    = {\theShortAuthorString}, % author
+    pdfsubject   = {\thedoctype},% subject of the document
+    % pdfcreator   = {\theauthor}, % creator of the document
+    pdfkeywords  = {\thekeywords}, 
+    pdfnewwindow = true,         % links in new window
+  }}{}%
+}
+\makeatother
+

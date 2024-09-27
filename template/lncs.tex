@@ -1,0 +1,60 @@
+\documentclass[runningheads]{template/lncs/llncs}
+
+\input{template/common-preamble.tex}
+
+
+\author{
+  \theAuthorOneName\inst{1}
+  \ifx\theAuthorOneORCID\empty\relax\else%
+    \orcidID{\theAuthorOneORCID}%
+  \fi%
+  \ifx\theAuthorTwoName\empty\relax\else%
+    \and\theAuthorTwoName\inst{2}%
+    \ifx\theAuthorTwoORCID\empty\relax\else%
+      \orcidID{\theAuthorTwoORCID}%
+    \fi
+  \fi
+  \ifx\theAuthorThreeName\empty\relax\else%
+    \and\theAuthorThreeName\inst{3}%
+    \ifx\theAuthorThreeORCID\empty\relax\else%
+      \orcidID{\theAuthorThreeORCID}%
+    \fi
+  \fi
+  \ifx\theAuthorFourName\empty\relax\else%
+    \and\theAuthorFourName\inst{3}%
+    \ifx\theAuthorFourORCID\empty\relax\else%
+      \orcidID{\theAuthorFourORCID}%
+    \fi
+  \fi
+}
+\institute{
+  \theAuthorOneOrg
+  \ifx\theAuthorTwoOrg\empty\relax\else
+    \and\theAuthorTwoOrg
+  \fi
+  \ifx\theAuthorThreeOrg\empty\relax\else
+    \and\theAuthorThreeOrg
+  \fi
+  \ifx\theAuthorFourOrg\empty\relax\else
+    \and\theAuthorFourOrg
+  \fi
+}
+
+\authorrunning{\theShortAuthorString}
+
+
+\AddToHook{begindocument/end}{
+
+  \markboth{}{} 
+  % formatting of references
+  \bibliographystyle{template/lncs/splncs04}
+
+  \maketitle
+
+  \begin{abstract}%
+    \ignorespaces\input{content/0_abstract}%
+  \end{abstract}
+  \begin{keywords}%
+    \ignorespaces\thekeywords%
+  \end{keywords}
+}

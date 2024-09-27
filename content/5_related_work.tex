@@ -1,0 +1,27 @@
+\section{Related Work}\label{sec:related}
+% ---------------------------------------------
+% Goal: Which other ideas/approaches exist to solve the problem? How can they be categorized and how do they relate to your approach?
+
+Related work is categorized in \cref{tab:sota}.
+
+\begin{table*}[t]
+    \def\noa{\textcolor{darkgray}{N/A}}
+	\def\mps{\meter\per\second}
+    \def\mpss{\meter\per\second\squared}
+	\sisetup{per-mode = fraction}%
+	\renewcommand{\arraystretch}{1.6}
+	\centering
+    \small
+    \begin{tabular}{@{}llrlrrrll@{}} \toprule
+    \multicolumn{2}{c}{Algorithm} & \multicolumn{2}{c}{Intersection} & \multicolumn{4}{c}{Vehicle} & Results\\  \cmidrule(rr){1-2}\cmidrule(lr){3-4}\cmidrule(lr){5-8}\cmidrule(ll){9-9}
+    \textbf{Name}  & \textbf{Simulation} & \textbf{S/L} & \textbf{Legs/Near} & \textbf{L} $[\si{m}]$ & \textbf{V} $\left[\si{\meter\per\second}\right]$ & \textbf{Acc.} $\left[\si{\meter\per\second\squared}\right]$ & \textbf{L-S-R} [\%] & \textbf{Avg. Delay}\\ \midrule
+		AIM08 \cite{im_aim08}    & Custom            & +1 & \SI{125}{m}/--         & \noa & \num{25.0} & \noa & 0-100-0 & \SI{0.2}{s}@\SI{0.5}{v/s/ln}\\
+		Prio14 \cite{im_priority14}  & SUMO/\SI{10}{min} & +3 & \SI{290}{m}/\SI{50}{m} & \noa & \num{12.0} & $-4\,..\,2$ & 20-70-10 & \SI{15}{s}@\SI{0.5}{v/s/rd}\\ 
+		Delay17 \cite{im_delay17} & SUMO & +1 & \SI{50}{m}/\SI{50}{m} & \noa & \noa & \noa & 20-70-10 & $\SI{35}{s}@\SI{0.5}{v/s/rd}$\\ 
+        CISCAV (ours)  & SUMO / \SI{3600}{s} & +1  & \SI{200}{m}/\SI{100}{m}     & $4.3$ & \num{13.9} & $-7.5\,..\,2.9$ & 33-33-33 & \SI{32}{s}@\SI{0.5}{v/s/rd} \\
+        \bottomrule
+	\end{tabular}
+	\caption{Example table to show related work. \textbf{S/L} indicates the shape of the intersection ($\vdash$, $+$, $+\hspace*{-0.8em}\times$) and the number of \emph{incoming} lanes for each direction. \textbf{Legs/Near} is the length of the intersection roads per leg and the distance from the center at which vehicles start broadcasting messages. \textbf{L, V, Acc.} states the vehicle \textit{L}ength; max. \textit{V}elocity; and maximum deceleration (negative) and \textit{Acc}eleration considered. \textbf{L-S-R} are the probabilities for a vehicle to turn left (L), go straight (S), or turn right (R) in percent. Each related approach did not mention at least one of these parameters (\noa).}
+	\label{tab:sota}
+\end{table*}		
+

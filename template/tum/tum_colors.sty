@@ -1,0 +1,105 @@
+% LaTeX package with TUM color definitions
+%
+% Authors: Emanuel Regnath (emanuel.regnath@tum.de)
+% Version: 1.0
+% 
+% © 2017 TUM
+
+\NeedsTeXFormat{LaTeX2e}
+\providecommand{\PathToTumTemplate}{./tum}
+\ProvidesPackage{\PathToTumTemplate/tum_colors}[2017/04/30 TUM Coorporate Design Colors]
+
+
+%% Process package options
+%% ----------------------------------------------------------------------
+
+% Package Options: digital (default), print
+\newif\ifdigitalcolors\digitalcolorstrue
+\DeclareOption{digital}{\digitalcolorstrue}
+\DeclareOption{print}{\digitalcolorsfalse}
+
+% pass unknown options to package xcolor
+\DeclareOption*{%
+	\PassOptionsToClass{\CurrentOption}{xcolor}%
+}
+
+% process options
+\ProcessOptions\relax
+
+
+%% Load xcolor package iff not loaded already
+%% ----------------------------------------------------------------------
+\RequirePackage{xcolor}
+
+% define command to provide colors iff not provided (backward compatibility)
+\makeatletter
+\providecommand{\providecolor}[3]{%
+  \@ifundefinedcolor{#1}{\definecolor{#1}{#2}{#3}}{}}
+\makeatother
+
+% select color model based on option (RGB default)
+\ifdigitalcolors
+	\selectcolormodel{RGB}   % digital colors
+\else
+	\selectcolormodel{cmyk}  % print colors
+\fi
+
+
+% ======================================================================
+% TUM Color Palette
+% ======================================================================
+% Note: The following color definitions are copied 
+% from the official TUM Styleguide
+
+
+% primary colors (Primärfarben)
+% ----------------------------------------------------------
+% Pantone 300 C
+\definecolor{prim_blue} {RGB/cmyk}{  0, 101, 189/ 1.0, 0.43, 0,   0}	
+
+\definecolor{prim_white}{RGB/cmyk}{255, 255, 255/   0,    0, 0,   0}
+\definecolor{prim_black}{RGB/cmyk}{  0,   0,   0/   0,    0, 0, 1.0}
+
+
+% secondary colors (Sekundärfarben)
+% ----------------------------------------------------------
+
+% Pantone 301
+\definecolor{sec_blue_dark}  {RGB/cmyk}{  0,  82, 147/1.0, 0.54, 0.40, 0.19}	
+% Pantone 540
+\definecolor{sec_blue_darker}{RGB/cmyk}{  0,  51,  89/1.0, 0.57, 0.12, 0.70}
+
+\definecolor{sec_gray_dark}  {RGB/cmyk}{ 88,  88,  90/  0,    0,    0, 0.80}		
+\definecolor{sec_gray}       {RGB/cmyk}{156, 157, 159/  0,    0,    0, 0.50}		
+\definecolor{sec_gray_light} {RGB/cmyk}{217, 218, 219/  0,    0,    0, 0.20}		
+
+
+% emphasize colors (Akzentfarben)
+% ----------------------------------------------------------
+
+% Pantone 383
+\definecolor{emph_green}{RGB/cmyk}{162, 173, 0/0.35, 0, 1.0, 0.2}
+% Pantone 158		
+\definecolor{emph_orange}{RGB/cmyk}{227, 114, 34/0.0, 0.65, 0.95, 0.0}
+% Pantone 7527
+\definecolor{emph_ivory}{RGB/cmyk}{218, 215, 203/0.30, 0.40, 0.14, 0.80}		
+
+% Pantone 542
+\definecolor{emph_blue_light}{RGB/cmyk}{100, 160, 200/0.65, 0.19, 0.01, 0.04}
+% Pantone 283	
+\definecolor{emph_blue_lighter}{RGB/cmyk}{152, 198, 234/0.42, 0.09, 0.0, 0.0}	
+
+
+% extended colors (Erweiterte Farben)
+% ----------------------------------------------------------
+\definecolor{ext_violet}   {RGB/cmyk}{105,   8,  90 / 0.5, 1.0,  0.0, 0.4}
+\definecolor{ext_navy}     {RGB/cmyk}{ 15,  27,  95 / 1.0, 1.0,  0.0, 0.4}
+\definecolor{ext_teal}     {RGB/cmyk}{  0, 119, 138 / 1.0, 0.03, 0.3, 0.3}
+\definecolor{ext_forest}   {RGB/cmyk}{  0, 124,  48 / 1.0, 0.0,  1.0, 0.2}
+\definecolor{ext_lime}     {RGB/cmyk}{103, 154,  29 / 0.6, 0.0,  1.0, 0.2}
+\definecolor{ext_yellow}   {RGB/cmyk}{255, 220,   0 / 0.0, 0.1,  1.0, 0.0}
+\definecolor{ext_goldenrod}{RGB/cmyk}{249, 186,   0 / 0.0, 0.3,  1.0, 0.0}
+\definecolor{ext_pumpkin}  {RGB/cmyk}{214,  76,  19 / 0.0, 0.8,  1.0, 0.1}
+\definecolor{ext_red}      {RGB/cmyk}{196,   7,  27 / 0.1, 1.0,  1.0, 0.1}
+\definecolor{ext_maroon}   {RGB/cmyk}{156,  13,  22 / 0.0, 1.0,  1.0, 0.4}
+

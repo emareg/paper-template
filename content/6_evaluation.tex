@@ -1,0 +1,21 @@
+\section{Evaluation}\label{sec:evaluation}
+% ---------------------------------------------
+% Goal: Demonstrate how well your approach works and compare its performance to related work.
+
+\subsection{Metrics}\label{sec:metrics}
+% Clearly define what and how you measure
+
+We evaluate our approach based on three important metrics: 
+\begin{enumerate}
+	\item \textbf{Delay} is the \emph{additional time} for a vehicle to completely cross an intersection compared to a crossing where the vehicle has priority from the beginning and can cross without any interactions with other vehicles.
+	\item \textbf{Stop Time} is the total duration a vehicle has a velocity lower than \SI{0.1}{m/s}.
+	\item \textbf{Communication Overhead} the average number of bytes a vehicle needs to send.
+\end{enumerate}
+
+
+
+\subsection{Experimental Setup}\label{sec:setup}
+% Describe all the steps required to reproduce your results
+
+In SUMO \cite{sumo}, we have created random traffic flows for a 4-leg intersection. We randomly spawn vehicles at the beginning of the roads (\SI{200}{m} from the center) with a given probability that is equal for all directions. For example, \SI{0.5}{v/s/rd} means that on average 0.5 vehicles will be spawned per second at each road. Spawned vehicles have equal probabilities ($33.\overline{3}$\%) to go in the following directions: left, straight, or right. We spawn vehicles over a period of \SI{3600}{s} and run the simulation until every vehicle has crossed the intersection. 
+We have performed this experiment for varying spawn probabilities over 3 crossing policies: Traffic light, priority road, and CISCAV. 

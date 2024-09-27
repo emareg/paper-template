@@ -1,0 +1,55 @@
+\documentclass[conference, nofonttune]{template/ieee/IEEEtran}
+
+\input{template/common-preamble.tex}
+
+
+\author{%
+    \IEEEauthorblockN{\theAuthorOneName}%
+    \IEEEauthorblockA{%
+        \href{mailto:\theAuthorOneMail}{\theAuthorOneMail}\\%
+        \theAuthorOneOrg, \theAuthorOneCountry
+    }%
+    \ifx\theAuthorTwoName\empty\relax\else
+        \and
+        \IEEEauthorblockN{\theAuthorTwoName}%
+        \IEEEauthorblockA{%
+            \href{mailto:\theAuthorTwoMail}{\theAuthorTwoMail}\\%
+            \theAuthorTwoOrg, \theAuthorTwoCountry
+        }%
+    \fi
+    \ifx\theAuthorThreeName\empty\relax\else
+        \and
+        \IEEEauthorblockN{\theAuthorThreeName}%
+        \IEEEauthorblockA{%
+            \href{mailto:\theAuthorThreeMail}{\theAuthorThreeMail}\\%
+            \theAuthorThreeOrg, \theAuthorThreeCountry
+        }%
+    \fi
+    \ifx\theAuthorFourName\empty\relax\else
+        \and
+        \IEEEauthorblockN{\theAuthorFourName}%
+        \IEEEauthorblockA{%
+            \href{mailto:\theAuthorFourMail}{\theAuthorFourMail}\\%
+            \theAuthorFourOrg, \theAuthorFourCountry
+        }%
+    \fi
+}%
+
+
+\AddToHook{begindocument/end}{
+    \markboth{}{}
+
+    \bibliographystyle{template/ieee/IEEEtran}
+
+    \maketitle
+
+    \begin{abstract}%
+        \ignorespaces\input{content/0_abstract}%
+    \end{abstract}
+    \begin{IEEEkeywords}%
+        \ignorespaces\thekeywords%
+    \end{IEEEkeywords}
+
+    %\IEEEpubid{\makebox[\columnwidth]{978-1-6654-3156-9/21/\$31.00~\copyright2021 IEEE \hfill} \hspace{\columnsep}\makebox[\columnwidth]{ }}
+
+}

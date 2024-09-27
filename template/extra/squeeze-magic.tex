@@ -1,0 +1,23 @@
+% Squeeze Magic
+% -----------------------------------------------------
+
+% figures
+\RequirePackage{caption}   % change figure captions
+
+% title spacing
+%\def\IEEEtitletopspace{-0.1cm}
+
+% line distance (defautl 1.0)
+\renewcommand{\baselinestretch}{0.98}  % or 0.94
+
+% column separation (default 2pc)
+% \setlength{\columnsep}{1.8pc}
+
+\AtBeginDocument{
+    % figures
+    \captionsetup{font={small}}  % mod: \sf
+    \captionsetup[figure]{belowskip=-7pt, aboveskip=6pt}
+    \captionsetup[table]{belowskip=-10pt, aboveskip=6pt}
+}
+
+% -----------------------------------------------------
